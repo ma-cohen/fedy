@@ -64,17 +64,6 @@ Create a **concise and simple** document with the following sections:
 [ASCII or Mermaid diagram showing main components and their relationships]
 ```
 
-## Folder Structure
-
-```
-<project-root>/
-├── [folder]/
-│   └── [description]
-├── [folder]/
-│   └── [description]
-└── ...
-```
-
 
 ## Design Principles
 
@@ -85,6 +74,8 @@ When creating the design:
 3. **Show tradeoffs** - Every decision has a cost. Document what was sacrificed.
 4. **Make it visual** - The diagram should communicate the architecture at a glance.
 5. **Stay concise** - If it can't fit on one page, it's too complex.
+6. **Design for testability** - read testing.md from the context.
+7. Think about split into domain for better separation of concerns
 
 ## Collaboration
 

@@ -73,6 +73,19 @@ Follow the Test Plan section from the task file:
 - Implement the key test cases listed
 - Follow existing test patterns and naming conventions
 
+#### 3.4 Add Logging
+Add meaningful logs to help Fedy agents debug issues:
+- Log at entry/exit points of important functions (e.g., API handlers, service methods)
+- Log key decision points and branch conditions
+- Log input parameters and return values for critical operations
+- Log errors with context (what was being attempted, relevant IDs/data)
+- Use appropriate log levels:
+  - `error` - failures that need attention
+  - `warn` - unexpected but handled situations
+  - `info` - important business events (user actions, state changes)
+  - `debug` - detailed technical information for troubleshooting
+- Follow existing logging patterns in the codebase
+
 ### Phase 4: Verification
 
 Run verification steps defined in `hooks/verify-task.md`.
@@ -158,6 +171,7 @@ Display what was accomplished:
 5. **Follow the design** - Never deviate from high-level-design.md
 6. **Minimal changes** - Only change what's specified in the task plan
 7. **No improvisation** - If the plan is unclear, ask the user, don't guess
+8. **Add meaningful logs** - Log important operations so Fedy agents can easily diagnose issues
 
 ## Error Handling
 
