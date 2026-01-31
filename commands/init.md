@@ -38,7 +38,23 @@ Hello from Fedy! 👋
 Your Fedy workspace is ready. Create new task files in this folder to start working with the Fedy agent.
 ```
 
-### 4. Create Architecture Folder
+### 4. Create Plan File
+
+In the root of the project folder, create:
+```
+fedy/<projectName>-fedy/plan.md
+```
+
+With initial content:
+```markdown
+# Plan
+
+<!-- Add one task per line, more detailed info is in tasks.md -->
+
+- [ ] 
+```
+
+### 5. Create Architecture Folder
 
 Inside the new project folder, create:
 ```
@@ -58,6 +74,7 @@ After running `fedy init`, the folder structure should look like:
 <project-root>/
 └── fedy/
     └── <projectName>-fedy/
+        ├── plan.md
         ├── tasks/
         │   └── 0.task.md
         └── architecture/
@@ -71,6 +88,7 @@ After successful initialization, display:
 > "Fedy project '<projectName>-fedy' initialized successfully!
 > 
 > Created:
+> - plan.md - Your task checklist (one task per line)
 > - tasks/0.task.md - Your first task file
 > - architecture/high-level-design.md - Document your system architecture here
 > 
