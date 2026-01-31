@@ -5,7 +5,7 @@ Generate the next 2-3 actionable tasks for the project plan.
 ## Prerequisites
 
 Before running this command, ensure:
-1. A Fedy project exists (run `fedy init` first if not)
+1. A Fedy project exists (run `fedy-init` first if not)
 2. The `plan.md` file exists in the project root
 3. The `architecture/high-level-design.md` file exists
 
@@ -93,4 +93,4 @@ After updating the plan, display:
 - Only add tasks that make sense given the current project state
 - Prioritize foundational work before features that depend on it
 - Consider the natural order: models → services → controllers → UI
-- If the high-level design is empty, suggest running `create-high-level-design` first
+- If the high-level design is empty, suggest running `fedy-create-high-level-design` first

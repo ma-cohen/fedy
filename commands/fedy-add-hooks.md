@@ -5,7 +5,7 @@ Add verification hooks to customize how tasks are validated.
 ## Prerequisites
 
 Before running this command, ensure:
-1. A Fedy project exists (run ` init` first if not)
+1. A Fedy project exists (run `fedy-init` first if not)
 
 ## Supported Hooks
 
@@ -70,7 +70,7 @@ After creating the hook, display:
 > 2. Step 2 name
 > ...
 > 
-> These steps will run after each `fedy do-task` completion."
+> These steps will run after each `fedy-do-task` completion."
 
 ## Final Structure
 
@@ -90,5 +90,5 @@ fedy/<projectName>-fedy/
 ## Updating Hooks
 
 To modify verification steps, either:
-- Run `fedy add-hooks` again (will ask to overwrite)
+- Run `fedy-add-hooks` again (will ask to overwrite)
 - Edit `hooks/verify-task.md` directly

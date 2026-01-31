@@ -4,7 +4,7 @@ Generate a concise, easy-to-understand high-level design document for the applic
 
 ## Prerequisites
 
-- The Fedy project must be initialized (run `fedy init` first)
+- The Fedy project must be initialized (run `fedy-init` first)
 - The `fedy/<projectName>-fedy/architecture/high-level-design.md` file should exist
 
 ## Input Gathering
