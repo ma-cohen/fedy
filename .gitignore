@@ -1,0 +1,5 @@
+# Release script (kept locally, not distributed)
+release.sh
+
+# macOS
+.DS_Store
