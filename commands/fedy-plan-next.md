@@ -53,9 +53,19 @@ Each task MUST be:
 #### Task Format
 
 ```markdown
-- [ ] <verb> <what> <where/context>
-- [ ] <verb> <what> | depends: <dependency task name>
+- [ ] <verb> <what> <where/context> | e2e: <feature/goal this contributes to>
+- [ ] <verb> <what> | e2e: <feature> | depends: <dependency task name>
 ```
+
+The `| e2e:` annotation is **required** for every task. It explains what end-to-end feature or user-facing goal the task contributes to, helping users understand the product value of each step.
+
+#### E2E Feature Analysis
+
+Before generating tasks, identify the E2E feature or goal being worked on:
+- Review the high-level design to understand what user-facing features are next
+- Determine which E2E feature the new tasks will contribute to
+- All tasks in a batch should ideally contribute to the same E2E feature (or related features)
+- The `e2e:` annotation should describe the product value (e.g., "User Authentication Flow", "Product Search", "Checkout Process")
 
 #### Dependency Analysis
 
@@ -67,12 +77,12 @@ When generating tasks, analyze which tasks depend on others:
 #### Good Examples
 
 ```markdown
-- [ ] Create User model with email and password fields
-- [ ] Add login endpoint to auth controller | depends: Create User model
-- [ ] Write unit tests for password validation | depends: Create User model
+- [ ] Create User model with email and password fields | e2e: User Authentication Flow
+- [ ] Add login endpoint to auth controller | e2e: User Authentication Flow | depends: Create User model
+- [ ] Write unit tests for password validation | e2e: User Authentication Flow | depends: Create User model
 ```
 
-Tasks 2 and 3 both depend on Task 1, but can run in parallel with each other.
+Tasks 2 and 3 both depend on Task 1, but can run in parallel with each other. All three tasks contribute to the same E2E feature: "User Authentication Flow".
 
 #### Bad Examples (Too Big)
 
@@ -90,15 +100,15 @@ Append the new tasks to the existing `plan.md` file, maintaining the checklist f
 # Plan
 
 <!-- Task status: [ ] Pending, [~] Planning, [R] Ready, [-] In Progress, [x] Completed -->
-<!-- Use | depends: <task> to mark dependencies -->
+<!-- Use | e2e: <feature> to show product value, | depends: <task> for dependencies -->
 
-- [x] Completed task 1
-- [-] In progress task
-- [R] Ready task (has task file)
-- [~] Being planned task
-- [ ] Existing pending task
-- [ ] New task 1
-- [ ] New task 2 | depends: New task 1
+- [x] Completed task 1 | e2e: Feature A
+- [-] In progress task | e2e: Feature A
+- [R] Ready task (has task file) | e2e: Feature A
+- [~] Being planned task | e2e: Feature B
+- [ ] Existing pending task | e2e: Feature B
+- [ ] New task 1 | e2e: Feature B
+- [ ] New task 2 | e2e: Feature B | depends: New task 1
 ```
 
 ## Output
@@ -107,12 +117,15 @@ After updating the plan, display:
 
 > "Added X new tasks to plan.md:
 > 
-> - [ ] Task 1 description
-> - [ ] Task 2 description | depends: Task 1
+> E2E Feature: <feature name>
+> - [ ] Task 1 description | e2e: <feature name>
+> - [ ] Task 2 description | e2e: <feature name> | depends: Task 1
 >
 > Dependency analysis:
 > - Task 1: No dependencies (can start immediately)
 > - Task 2: Depends on Task 1 (must wait)
+>
+> Product value: When these tasks are completed, <explain what user-facing functionality will be delivered>.
 >
 > Run `fedy-plan-task` to create a detailed plan for a pending task."
 
@@ -122,6 +135,7 @@ After updating the plan, display:
 - Only add tasks that make sense given the current project state
 - Prioritize foundational work before features that depend on it
 - Consider the natural order: models → services → controllers → UI
+- **Always include `| e2e:`** - Every task must state which E2E feature it contributes to
 - **Analyze dependencies** between tasks and mark them with `| depends:`
 - Tasks without dependencies can potentially run in parallel
 - If the high-level design is empty, suggest running `fedy-create-high-level-design` first
