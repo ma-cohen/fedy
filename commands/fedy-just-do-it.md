@@ -50,15 +50,8 @@ For each executable task:
 - If conflict is likely, mark this task as **blocked by file conflict**
 
 #### 1.4 Select Task
-If **multiple tasks** are executable (no blocks):
-> "Found X pending tasks ready for execution:
-> 1. [ ] Task A description
-> 2. [ ] Task B description
->
-> Which task should I work on?"
-
-If **one task** is executable:
-> Proceed with that task automatically
+If **one or more tasks** are executable (no blocks):
+> Proceed with the **first available task** automatically (by order in plan.md)
 
 If **zero tasks** are executable (all blocked):
 > "All pending tasks are blocked:
@@ -80,19 +73,25 @@ Before starting execution:
 - Understand the design patterns, component structure, and constraints
 - Ensure implementation will follow the design
 
-#### 2.2 Quick Context Scan
+#### 2.2 Read Implementation Rules
+- Check if `rules/implementation-rules.md` exists
+- If it exists, read all rules
+- Keep these rules in mind during implementation
+- If it does NOT exist, continue without rules (no warning needed)
+
+#### 2.3 Quick Context Scan
 - Identify relevant existing files related to the task
 - Note coding conventions, patterns, and styles in use
 - Find existing tests to understand testing patterns
 
-#### 2.3 Check for Verification Hook
+#### 2.4 Check for Verification Hook
 - Check if `hooks/verify-task.md` exists
 - If it exists, read the verification steps
 - If it does NOT exist, warn the user:
   > "No verify-task hook found. Run `fedy-add-hooks` to configure verification steps."
   > Continue without automated verification, or stop and let user add hooks first.
 
-#### 2.4 Install Dependencies (if needed)
+#### 2.5 Install Dependencies (if needed)
 If the task requires new packages:
 - Install required packages using the project's package manager
 - Example: `npm install <package>` or `pip install <package>`
@@ -217,6 +216,7 @@ Display what was accomplished:
 10. **Mark status immediately** - Change to `[-]` before starting, `[x]` when done
 11. **Check dependencies** - Verify prerequisite tasks are completed before starting
 12. **Know when to switch** - If the task is too complex, stop and use `fedy-plan-task` + `fedy-do-task` instead
+13. **Respect implementation rules** - Follow all rules in `rules/implementation-rules.md`
 
 ## When to Use fedy-do-task Instead
 

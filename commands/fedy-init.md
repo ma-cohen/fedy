@@ -66,6 +66,38 @@ With an empty file:
 fedy/<projectName>-fedy/architecture/high-level-design.md
 ```
 
+### 6. Create Rules Folder
+
+Inside the new project folder, create:
+```
+fedy/<projectName>-fedy/rules/
+```
+
+With an initial file `implementation-rules.md` containing:
+```markdown
+# Implementation Rules
+
+Rules and guidelines for this project. Fedy reads these before executing tasks.
+
+<!-- Add rules using `fedy-add-rule` or manually following the format below -->
+
+<!--
+---
+
+## Rule: [Rule Title]
+
+**Context:** When does this rule apply?
+
+**Don't:** What to avoid
+
+**Do:** What to do instead
+
+**Example:** (optional)
+Code example
+
+-->
+```
+
 ## Final Structure
 
 After running `fedy init`, the folder structure should look like:
@@ -77,8 +109,10 @@ After running `fedy init`, the folder structure should look like:
         ├── plan.md
         ├── tasks/
         │   └── 0.task.md
-        └── architecture/
-            └── high-level-design.md
+        ├── architecture/
+        │   └── high-level-design.md
+        └── rules/
+            └── implementation-rules.md
 ```
 
 ## Success Message
@@ -91,5 +125,6 @@ After successful initialization, display:
 > - plan.md - Your task checklist (one task per line)
 > - tasks/0.task.md - Your first task file
 > - architecture/high-level-design.md - Document your system architecture here
+> - rules/implementation-rules.md - Add implementation rules with `fedy-add-rule`
 > 
 > You're ready to start working with Fedy!"

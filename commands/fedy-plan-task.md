@@ -35,7 +35,14 @@ Tasks in `plan.md` use these status markers:
 - Understand the system design, patterns, and constraints
 - All planning MUST adhere to this design
 
-#### 1.3 Scan the Codebase
+#### 1.3 Read Implementation Rules
+- Check if `rules/implementation-rules.md` exists
+- If it exists, read all rules
+- Note any rules relevant to this task
+- The task plan should incorporate these rules
+- If it does NOT exist, continue without rules (no warning needed)
+
+#### 1.4 Scan the Codebase
 - Identify relevant existing files related to the task
 - Note coding conventions, patterns, and styles in use
 - Find existing tests to understand testing patterns
@@ -88,6 +95,10 @@ Create a detailed implementation plan covering:
 6. **Alignment with Architecture**
    - How this task fits the high-level design
    - Any patterns from the design to follow
+
+7. **Relevant Implementation Rules** (if any exist)
+   - List any rules from `rules/implementation-rules.md` that apply to this task
+   - Include the rule title and a brief reminder of what to do/avoid
 
 ### Phase 4: Write Task File
 
@@ -142,6 +153,11 @@ Write the implementation plan to `tasks/<number>.<task-name>.md`:
 
 ## Architecture Alignment
 <How this fits the high-level design>
+
+## Relevant Implementation Rules
+<!-- List rules from rules/implementation-rules.md that apply to this task -->
+- <Rule title> - <Brief reminder of what to do/avoid>
+- Or: "No specific rules apply"
 ```
 
 ### Phase 5: Completion
@@ -205,6 +221,10 @@ None required / List of packages
 
 ## Architecture Alignment
 How this fits the high-level design patterns.
+
+## Relevant Implementation Rules
+- Rule title - Brief reminder of what to do/avoid
+- Or: "No specific rules apply"
 ```
 
 ## Task Status in Task File
@@ -223,6 +243,7 @@ The task file status should match the plan.md status:
 5. **Sequential numbering** - Task numbers must be sequential (1, 2, 3...)
 6. **Mark status immediately** - Change `[ ]` to `[~]` at start, `[~]` to `[R]` when done
 7. **Document prerequisites** - Parse `| depends:` from plan.md and list in task file
+8. **Consider implementation rules** - Reference relevant rules from `rules/implementation-rules.md` in the task file
 
 ## Error Handling
 
